@@ -1,0 +1,35 @@
+======================================
+       KAVACH-Loop Defensive PoC
+======================================
+
+[1] Vulnerable sample
+File: vulnerable_samples/target.c
+Unsafe strcpy occurrences:
+20:     * input can hold more data than name, and strcpy does not
+23:    strcpy(name, input);
+
+[2] Approved secure version
+File: approved_patches/target_approved.c
+PASS: unsafe strcpy is absent
+
+[3] Normal-input test
+Hello, hello
+
+Exit code: 0
+
+[4] Oversized-input safety test
+Error: input is too long
+Exit code: 1
+
+[5] Evidence integrity check
+approved_patches/target_approved.c: OK
+reports/patch_verification.json: OK
+approvals/patch_approval.json: OK
+memory/strcpy_regression.json: OK
+
+[6] Recorded decisions
+Harness decision: PASS
+Human approval: APPROVED
+Human approval required: True
+
+Demo complete: no files were modified or deployed.

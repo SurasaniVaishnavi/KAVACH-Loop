@@ -1,0 +1,12 @@
+rules:
+  - id: kavach-unsafe-strcpy
+    message: >
+      Unsafe strcpy() can overflow the destination buffer because it does not
+      enforce a length limit.
+    severity: ERROR
+    languages:
+      - c
+    pattern: strcpy($DEST, $SRC)
+    metadata:
+      category: security
+      cwe: "CWE-120: Buffer Copy without Checking Size of Input"

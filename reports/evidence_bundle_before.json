@@ -1,0 +1,33 @@
+{
+  "project": "KAVACH-Loop",
+  "stage": "before_repair",
+  "generated_at_utc": "2026-08-21T14:04:08.259984+00:00",
+  "target": "vulnerable_samples/target.c",
+  "vulnerability": {
+    "type": "stack-buffer-overflow",
+    "unsafe_function": "strcpy",
+    "cwe": "CWE-120"
+  },
+  "asan": {
+    "detected": true,
+    "report": "evidence/asan_report_before.txt",
+    "reproducer": "crash_inputs/asan_trigger.txt"
+  },
+  "semgrep": {
+    "finding_count": 1,
+    "rule_ids": [
+      "semgrep_rules.kavach-unsafe-strcpy"
+    ],
+    "report": "evidence/semgrep_before.json"
+  },
+  "afl": {
+    "crash_replay_detected": true,
+    "execs_done": "33896",
+    "saved_crashes": "1",
+    "saved_hangs": "0",
+    "reproducer": "crash_inputs/afl_crash.bin",
+    "asan_replay_report": "evidence/afl_asan_report_before.txt",
+    "statistics": "evidence/afl_fuzzer_stats_before.txt"
+  },
+  "evidence_complete": true
+}

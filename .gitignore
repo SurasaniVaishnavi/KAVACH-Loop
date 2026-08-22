@@ -1,0 +1,36 @@
+# Python environment and cache
+.venv/
+__pycache__/
+*.pyc
+
+# Compiled files
+build/
+*.o
+*.out
+*.exe
+
+# Raw fuzzing and crash artefacts
+afl_output/
+fuzz_output/
+crashes/
+hangs/
+core
+core.*
+crash_inputs/
+fuzz_inputs/
+fuzz_outputs/
+
+# Temporary and editor files
+*.tmp
+*.log
+.DS_Store
+
+# Generated evidence archive
+reports/kavach_loop_evidence.tar.gz
+reports/kavach_loop_evidence.tar.gz.sha256
+
+# Raw local evidence may contain machine-specific paths
+evidence/afl_fuzzer_stats_before.txt
+evidence/afl_asan_report_before.txt
+evidence/asan_report_before.txt
+evidence/semgrep_before.json

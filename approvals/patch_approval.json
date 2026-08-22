@@ -1,0 +1,8 @@
+{
+  "project": "KAVACH-Loop",
+  "candidate": "patch_candidates/target_patched.c",
+  "decision": "APPROVED",
+  "approved_by": "vaishnavi",
+  "approved_at_utc": "2026-08-21T16:18:51Z",
+  "automated_report": "reports/patch_verification.json"
+}

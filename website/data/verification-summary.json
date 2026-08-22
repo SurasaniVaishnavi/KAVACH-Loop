@@ -1,0 +1,21 @@
+{
+    "project": "KAVACH-Loop",
+    "prototype_type": "Authorized defensive college PoC",
+    "workflow_mode": "Supervised autonomy",
+    "harness_decision": "PASS",
+    "human_decision": "APPROVED",
+    "human_approval_required": true,
+    "checks": {
+        "compilation": "PASS",
+        "normal_input": "PASS",
+        "asan_crash_replay": "PASS",
+        "afl_crash_replay": "PASS",
+        "unsafe_strcpy_check": "PASS",
+        "evidence_integrity": "VERIFIED"
+    },
+    "safety_boundary": {
+        "automatic_merge": false,
+        "automatic_deployment": false,
+        "live_system_testing": false
+    }
+}

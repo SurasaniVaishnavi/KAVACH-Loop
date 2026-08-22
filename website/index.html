@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="KAVACH-Loop: an evidence-guided, human-approved vulnerability-remediation prototype."
+    >
+
+    <title>KAVACH-Loop | Defensive Security Dashboard</title>
+
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="navbar">
+            <a class="brand" href="#">KAVACH-Loop</a>
+            <span class="prototype-badge">Defensive College PoC</span>
+        </nav>
+
+        <div class="hero-content">
+            <p class="eyebrow">EVIDENCE-GUIDED REMEDIATION</p>
+
+            <h1>Detect. Verify. Approve. Remember.</h1>
+
+            <p class="hero-description">
+                A supervised vulnerability-remediation prototype in which
+                automated security checks produce evidence and a human retains
+                final approval authority.
+            </p>
+
+            <div class="hero-actions">
+                <a class="primary-button" href="#workflow">View workflow</a>
+                <a class="secondary-button" href="#evidence">View evidence</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="summary-section" aria-label="Verification summary">
+            <article class="summary-card">
+                <span class="summary-label">Harness decision</span>
+                <strong class="status-pass">PASS</strong>
+            </article>
+
+            <article class="summary-card">
+                <span class="summary-label">Human decision</span>
+                <strong class="status-approved">APPROVED</strong>
+            </article>
+
+            <article class="summary-card">
+                <span class="summary-label">Integrity</span>
+                <strong class="status-pass">VERIFIED</strong>
+            </article>
+
+            <article class="summary-card">
+                <span class="summary-label">Deployment mode</span>
+                <strong>Supervised</strong>
+            </article>
+        </section>
+
+        <section id="workflow" class="content-section">
+            <div class="section-heading">
+                <p class="eyebrow">CONTROLLED WORKFLOW</p>
+                <h2>From vulnerability to approved repair</h2>
+                <p>
+                    Generation and verification remain separated. The harness
+                    decides test results; a human decides whether the patch is approved.
+                </p>
+            </div>
+
+            <div class="workflow-grid">
+                <article class="workflow-card">
+                    <span class="step-number">01</span>
+                    <h3>Detect</h3>
+                    <p>Identify unsafe code using static analysis and controlled local testing.</p>
+                </article>
+
+                <article class="workflow-card">
+                    <span class="step-number">02</span>
+                    <h3>Patch</h3>
+                    <p>Create a minimal candidate without modifying the retained vulnerable sample.</p>
+                </article>
+
+                <article class="workflow-card">
+                    <span class="step-number">03</span>
+                    <h3>Verify</h3>
+                    <p>Check compilation, normal behaviour, crash regression and unsafe-code removal.</p>
+                </article>
+
+                <article class="workflow-card">
+                    <span class="step-number">04</span>
+                    <h3>Approve</h3>
+                    <p>Require manual review before promoting the candidate as the approved version.</p>
+                </article>
+
+                <article class="workflow-card">
+                    <span class="step-number">05</span>
+                    <h3>Remember</h3>
+                    <p>Preserve verified regression evidence for future patch candidates.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section comparison-section">
+            <div class="section-heading">
+                <p class="eyebrow">MINIMAL SECURITY PATCH</p>
+                <h2>Before and after</h2>
+            </div>
+
+            <div class="comparison-grid">
+                <article class="code-card vulnerable-card">
+                    <div class="code-card-header">
+                        <h3>Vulnerable sample</h3>
+                        <span class="status-danger">UNSAFE</span>
+                    </div>
+
+                    <pre><code>char name[32];
+strcpy(name, input);</code></pre>
+
+                    <p>
+                        An oversized value may exceed the destination buffer.
+                        This sample is retained only for controlled demonstration.
+                    </p>
+                </article>
+
+                <article class="code-card approved-card">
+                    <div class="code-card-header">
+                        <h3>Approved version</h3>
+                        <span class="status-pass">VERIFIED</span>
+                    </div>
+
+                    <pre><code>if (strlen(input) &gt;= sizeof(name)) {
+    fprintf(stderr, "Error: input is too long\n");
+    return 1;
+}
+memcpy(name, input, strlen(input) + 1);</code></pre>
+
+                    <p>
+                        Oversized input is rejected before copying while normal
+                        behaviour remains available.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="evidence" class="content-section">
+            <div class="section-heading">
+                <p class="eyebrow">VERIFICATION EVIDENCE</p>
+                <h2>Independent checks—not an AI opinion</h2>
+            </div>
+
+            <div class="evidence-panel">
+                <div class="check-row">
+                    <span>Compilation</span>
+                    <strong class="status-pass">PASS</strong>
+                </div>
+
+                <div class="check-row">
+                    <span>Normal-input behaviour</span>
+                    <strong class="status-pass">PASS</strong>
+                </div>
+
+                <div class="check-row">
+                    <span>AddressSanitizer crash replay</span>
+                    <strong class="status-pass">PASS</strong>
+                </div>
+
+                <div class="check-row">
+                    <span>AFL++ crash replay</span>
+                    <strong class="status-pass">PASS</strong>
+                </div>
+
+                <div class="check-row">
+                    <span>Unsafe strcpy static check</span>
+                    <strong class="status-pass">PASS</strong>
+                </div>
+
+                <div class="check-row">
+                    <span>Human patch review</span>
+                    <strong class="status-approved">APPROVED</strong>
+                </div>
+
+                <div class="check-row">
+                    <span>Evidence-file integrity</span>
+                    <strong class="status-pass">VERIFIED</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section boundary-section">
+            <div>
+                <p class="eyebrow">SAFETY BOUNDARY</p>
+                <h2>Supervised autonomy by design</h2>
+            </div>
+
+            <p>
+                KAVACH-Loop is an authorized defensive college prototype using
+                locally created test files. It does not automatically merge or
+                deploy patches and is not proposed for unsupervised operation
+                on live or classified systems.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            KAVACH-Loop · Defensive cybersecurity research prototype
+        </p>
+    </footer>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>

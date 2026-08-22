@@ -1,0 +1,39 @@
+{
+  "project": "KAVACH-Loop",
+  "stage": "candidate_verification",
+  "generated_at_utc": "2026-08-21T16:09:36.234047+00:00",
+  "candidate": "patch_candidates/target_patched.c",
+  "checks": {
+    "compilation": {
+      "passed": true,
+      "return_code": 0,
+      "stderr": ""
+    },
+    "normal_input": {
+      "passed": true,
+      "return_code": 0,
+      "stdout": "Hello, Vaishnavi\n",
+      "stderr": ""
+    },
+    "asan_crash_replay": {
+      "passed": true,
+      "return_code": 1,
+      "asan_error_present": false,
+      "stderr": "Error: input is too long\n"
+    },
+    "afl_crash_replay": {
+      "passed": true,
+      "return_code": 1,
+      "asan_error_present": false,
+      "stderr": "Error: input is too long\n"
+    },
+    "semgrep": {
+      "passed": true,
+      "return_code": 0,
+      "finding_count": 0,
+      "stderr": "               \n               \n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 Scan Status \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n  Scanning 1 file tracked by git with 1 Code rule:\n  Scanning 1 file.\n                \n                \n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 Scan Summary \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\u2705 Scan completed successfully.\n \u2022 Findings: 0 (0 blocking)\n \u2022 Rules run: 1\n \u2022 Targets scanned: 1\n \u2022 Parsed lines: ~100.0%\n \u2022 No ignore information available\nRan 1 rule on 1 file: 0 findings.\nIf Semgrep missed a finding, please send us feedback to let us know!\nSee https://semgrep.dev/docs/reporting-false-negatives/\n"
+    }
+  },
+  "harness_decision": "PASS",
+  "human_approval_required": true
+}
