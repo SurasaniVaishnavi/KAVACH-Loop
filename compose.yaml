@@ -1,0 +1,42 @@
+services:
+  kavach-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: kavach-loop-api:local
+    container_name: kavach-loop-api
+
+    user: "10001:10001"
+    init: true
+    restart: "no"
+    read_only: true
+
+    ports:
+      - "127.0.0.1:8001:8000"
+
+    volumes:
+      - type: bind
+        source: ./regression_inputs
+        target: /app/crash_inputs
+        read_only: true
+
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=128m,uid=10001,gid=10001,mode=1770
+      - /app/build:rw,exec,nosuid,nodev,size=64m,uid=10001,gid=10001,mode=0770
+      - /app/reports:rw,noexec,nosuid,nodev,size=16m,uid=10001,gid=10001,mode=0770
+
+    environment:
+      HOME: /tmp
+      SEMGREP_SEND_METRICS: "off"
+      SEMGREP_ENABLE_VERSION_CHECK: "0"
+
+    cap_drop:
+      - ALL
+
+    security_opt:
+      - no-new-privileges:true
+
+    pids_limit: 128
+    mem_limit: 1g
+    cpus: 1.0

@@ -1,0 +1,5 @@
+User=10001:10001 ReadOnlyRootFS=true Privileged=false
+DroppedCapabilities=["ALL"] SecurityOptions=["no-new-privileges:true"]
+/app/crash_inputs Writable= false
+
+8000/tcp -> 127.0.0.1:8001

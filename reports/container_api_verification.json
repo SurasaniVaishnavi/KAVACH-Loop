@@ -1,0 +1,1 @@
+{"completed":true,"exit_code":0,"harness_decision":"PASS","summary":["compilation: PASS","normal_input: PASS","asan_crash_replay: PASS","afl_crash_replay: PASS","semgrep: PASS","HARNESS DECISION: PASS","Human approval required: True"],"human_approval_required":true,"automatic_merge":false,"automatic_deployment":false}

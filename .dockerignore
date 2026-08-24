@@ -1,0 +1,38 @@
+# Version control
+.git/
+.gitignore
+
+# Python environment and caches
+.venv/
+__pycache__/
+*.pyc
+
+# Local compiled output
+build/
+*.o
+*.out
+
+# Local regression and fuzzing inputs
+crash_inputs/
+regression_inputs/
+fuzz_inputs/
+fuzz_outputs/
+afl_output/
+
+# Evidence and reports not copied into the image
+evidence/
+reports/
+memory/
+
+# Files not required by the restricted API image
+approved_patches/
+vulnerable_samples/
+demo/
+DEMO_GUIDE.md
+README.md
+
+# Generated archives and temporary files
+*.tar.gz
+*.tmp
+*.log
+.DS_Store

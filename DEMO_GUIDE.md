@@ -32,3 +32,37 @@ From the project directory:
 ## Safety boundary
 
 This is an authorized defensive college prototype using only locally created test files. The deliberately vulnerable sample is retained solely for controlled before-and-after demonstration. No patch is deployed or merged automatically.
+
+## Version 2 containerized demonstration
+
+Start the restricted API container:
+
+```bash
+docker compose up -d
+```
+
+Open the interactive dashboard:
+
+```text
+http://127.0.0.1:8001
+```
+
+Click **Run verification** and confirm:
+
+- Harness decision: `PASS`
+- Compilation: `PASS`
+- Normal-input test: `PASS`
+- ASan crash replay: `PASS`
+- AFL++ crash replay: `PASS`
+- Semgrep: `PASS`
+- Automatic merge: disabled
+- Automatic deployment: disabled
+- Human approval remains required
+
+Explain to the judges that the browser does not submit commands or external targets. It can only request execution of the predefined defensive verification harness inside the restricted local container.
+
+After the demonstration, stop the container:
+
+```bash
+docker compose down
+```

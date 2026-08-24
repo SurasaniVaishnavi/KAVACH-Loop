@@ -85,3 +85,54 @@ Future work may include:
 This is an authorized defensive prototype using locally created files and test data. The deliberately vulnerable sample exists only for controlled before-and-after demonstration.
 
 KAVACH-Loop is not proposed for unsupervised deployment on live operational or classified systems.
+
+## Version 2 — Restricted Docker Verification API
+
+Version 2 preserves the original local PoC and adds a containerized FastAPI service and interactive dashboard.
+
+### Start the containerized demo
+
+```bash
+docker compose up -d --build
+```
+
+Open:
+
+```text
+http://127.0.0.1:8001
+```
+
+Select **Run verification** to execute the fixed defensive harness inside the restricted container.
+
+### API endpoints
+
+- `GET /api/health` — container health status
+- `GET /api/status` — sanitized project status
+- `GET /api/evidence` — sanitized verification evidence
+- `POST /api/verify` — runs only the fixed local harness
+- `GET /api/docs` — interactive API documentation
+
+The verification endpoint accepts no command, filename, URL, target, request body, or parameters.
+
+### Container safety controls
+
+- Runs as non-root user `10001:10001`
+- Read-only root filesystem
+- All Linux capabilities dropped
+- `no-new-privileges` enabled
+- Crash inputs mounted read-only
+- Temporary writable build and report directories
+- API published only to `127.0.0.1:8001`
+- No automatic patch merge
+- No automatic deployment
+- Human approval remains mandatory
+- Uses deterministic, harmless oversized regression fixtures for reproducible testing
+- Original raw ASan and AFL++ crash artifacts remain local and excluded from Git
+
+### Stop the containerized demo
+
+```bash
+docker compose down
+```
+
+Version 1 remains preserved in the `main` branch and the `v1.0-baseline` Git tag. Version 2 is developed separately in the `v2-container-api` branch.

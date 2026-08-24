@@ -189,6 +189,33 @@ memcpy(name, input, strlen(input) + 1);</code></pre>
                     <strong class="status-pass">VERIFIED</strong>
                 </div>
             </div>
+            <div class="verification-runner">
+                <div>
+                    <p class="eyebrow">LIVE CONTAINER CHECK</p>
+                    <h3>Run isolated verification</h3>
+                    <p>
+                        Trigger the fixed defensive harness inside the restricted Docker
+                        container. No command, filename or external target can be supplied.
+                    </p>
+                </div>
+
+                <button
+                    id="run-verification"
+                    class="primary-button verification-button"
+                    type="button"
+                >
+                    Run verification
+                </button>
+
+                <div
+                    id="verification-result"
+                    class="verification-result"
+                    role="status"
+                    aria-live="polite"
+                >
+                    Ready. Human approval remains required after every passing run.
+                </div>
+            </div>
         </section>
 
         <section class="content-section boundary-section">
