@@ -30,14 +30,18 @@ RUN groupadd --system --gid 10001 kavach \
         appuser
 
 COPY --chown=10001:10001 api /app/api
+COPY --chown=10001:10001 agents /app/agents
 COPY --chown=10001:10001 harness /app/harness
 COPY --chown=10001:10001 patch_candidates /app/patch_candidates
 COPY --chown=10001:10001 semgrep_rules /app/semgrep_rules
 COPY --chown=10001:10001 website /app/website
 COPY --chown=10001:10001 approvals /app/approvals
 
-RUN mkdir -p /app/build /app/reports \
-    && chown -R 10001:10001 /app/build /app/reports
+RUN mkdir -p /app/build /app/reports /app/runtime_jobs \
+    && chown -R 10001:10001 \
+        /app/build \
+        /app/reports \
+        /app/runtime_jobs
 
 USER 10001:10001
 

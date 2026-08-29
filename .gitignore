@@ -34,3 +34,12 @@ evidence/afl_fuzzer_stats_before.txt
 evidence/afl_asan_report_before.txt
 evidence/asan_report_before.txt
 evidence/semgrep_before.json
+# Temporary controlled-intake workspaces
+runtime_jobs/
+# Generated controlled-intake reports
+reports/intake/
+# Generated local human-review records
+reports/human_reviews/
+# Local video-export artifacts
+docs/demo/*-original.mp4
+*:Zone.Identifier

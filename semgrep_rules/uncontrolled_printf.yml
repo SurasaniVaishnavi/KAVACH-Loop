@@ -1,0 +1,17 @@
+rules:
+  - id: kavach-uncontrolled-printf-format
+    message: >
+      A variable is used directly as the printf() format string. Untrusted
+      format strings can expose memory or cause unintended writes.
+    severity: ERROR
+    languages:
+      - c
+    patterns:
+      - pattern: printf($FORMAT)
+      - metavariable-regex:
+          metavariable: $FORMAT
+          regex: '^[A-Za-z_][A-Za-z0-9_]*(?:\[[^\]]+\])?$'
+    metadata:
+      category: security
+      cwe: "CWE-134: Use of Externally-Controlled Format String"
+      scope: "Direct variable passed as the sole printf format argument"

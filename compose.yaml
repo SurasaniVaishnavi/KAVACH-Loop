@@ -25,11 +25,22 @@ services:
       - /tmp:rw,noexec,nosuid,nodev,size=128m,uid=10001,gid=10001,mode=1770
       - /app/build:rw,exec,nosuid,nodev,size=64m,uid=10001,gid=10001,mode=0770
       - /app/reports:rw,noexec,nosuid,nodev,size=16m,uid=10001,gid=10001,mode=0770
+      - /app/runtime_jobs:rw,noexec,nosuid,nodev,size=16m,uid=10001,gid=10001,mode=0770
 
     environment:
       HOME: /tmp
       SEMGREP_SEND_METRICS: "off"
       SEMGREP_ENABLE_VERSION_CHECK: "0"
+      OLLAMA_BASE_URL: "http://kavach-ollama:11434"
+      OLLAMA_MODEL: "qwen3.5:0.8b"
+
+    depends_on:
+      kavach-ollama:
+        condition: service_healthy
+
+    networks:
+      - kavach-frontend
+      - kavach-model
 
     cap_drop:
       - ALL
@@ -40,3 +51,54 @@ services:
     pids_limit: 128
     mem_limit: 1g
     cpus: 1.0
+
+  kavach-ollama:
+    image: ollama/ollama@sha256:075246f72d4109385b4a01c3ac8e9cbd26a0bcb21cd7aa30edbccd24e1b3180c
+    container_name: kavach-loop-ollama
+
+    restart: "no"
+    read_only: true
+
+    expose:
+      - "11434"
+
+    volumes:
+      - type: volume
+        source: kavach_ollama_models
+        target: /root/.ollama
+
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=64m
+
+    networks:
+      - kavach-model
+
+    cap_drop:
+      - ALL
+
+    security_opt:
+      - no-new-privileges:true
+
+    pids_limit: 256
+    mem_limit: 4g
+    cpus: 6.0
+
+    healthcheck:
+      test:
+        - CMD
+        - ollama
+        - list
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+volumes:
+  kavach_ollama_models:
+    external: true
+    name: kavach_ollama_models
+
+networks:
+  kavach-frontend:
+  kavach-model:
+    internal: true

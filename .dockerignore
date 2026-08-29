@@ -36,3 +36,5 @@ README.md
 *.tmp
 *.log
 .DS_Store
+# Documentation media is not required in the API image
+docs/

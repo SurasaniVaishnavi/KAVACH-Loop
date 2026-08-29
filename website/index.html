@@ -2,155 +2,306 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="KAVACH-Loop: an evidence-guided, human-approved vulnerability-remediation prototype."
+        content="KAVACH-Loop is an evidence-guided defensive security prototype developed for Terrier Cyber Quest 2026."
     >
 
-    <title>KAVACH-Loop | Defensive Security Dashboard</title>
+    <title>KAVACH-Loop | TCQ 2026 Defensive PoC</title>
 
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
-    <header class="hero">
-        <nav class="navbar">
-            <a class="brand" href="#">KAVACH-Loop</a>
-            <span class="prototype-badge">Defensive College PoC</span>
+    <header id="top" class="hero">
+        <nav class="navbar" aria-label="Primary navigation">
+            <a
+                class="brand"
+                href="#top"
+                aria-label="KAVACH-Loop home"
+            >
+                KAVACH<span class="brand-accent">-Loop</span>
+            </a>
+
+            <span class="prototype-badge">
+                TCQ 2026 · DEFENSIVE POC
+            </span>
         </nav>
 
         <div class="hero-content">
-            <p class="eyebrow">EVIDENCE-GUIDED REMEDIATION</p>
+            <p class="eyebrow">
+                EVIDENCE-GUIDED AI SECURITY REMEDIATION
+            </p>
 
-            <h1>Detect. Verify. Approve. Remember.</h1>
+            <h1>
+                Find the flaw. Test the fix.<br>
+                Keep humans in the loop.
+            </h1>
 
             <p class="hero-description">
-                A supervised vulnerability-remediation prototype in which
-                automated security checks produce evidence and a human retains
-                final approval authority.
+                KAVACH-Loop checks an authorized C file, explains the
+                evidence with a restricted local AI model, and leaves
+                every approval decision to a human reviewer.
             </p>
 
             <div class="hero-actions">
-                <a class="primary-button" href="#workflow">View workflow</a>
-                <a class="secondary-button" href="#evidence">View evidence</a>
+                <a class="primary-button" href="#workflow">
+                    View workflow
+                </a>
+
+                <a class="secondary-button" href="#evidence">
+                    View evidence
+                </a>
             </div>
+        </div>
+
+        <div
+            class="summary-section"
+            aria-label="Project decision summary"
+        >
+            <article class="summary-card">
+                <span class="summary-label">
+                    BASELINE HARNESS
+                </span>
+
+                <strong class="status-pass">
+                    PASS
+                </strong>
+            </article>
+
+            <article class="summary-card">
+                <span class="summary-label">
+                    BASELINE PATCH REVIEW
+                </span>
+
+                <strong class="status-approved">
+                    APPROVED
+                </strong>
+            </article>
+
+            <article class="summary-card">
+                <span class="summary-label">
+                    EVIDENCE INTEGRITY
+                </span>
+
+                <strong class="status-pass">
+                    VERIFIED
+                </strong>
+            </article>
+
+            <article class="summary-card">
+                <span class="summary-label">
+                    WORKFLOW MODE
+                </span>
+
+                <strong>
+                    SUPERVISED
+                </strong>
+            </article>
         </div>
     </header>
 
     <main>
-        <section class="summary-section" aria-label="Verification summary">
-            <article class="summary-card">
-                <span class="summary-label">Harness decision</span>
-                <strong class="status-pass">PASS</strong>
-            </article>
-
-            <article class="summary-card">
-                <span class="summary-label">Human decision</span>
-                <strong class="status-approved">APPROVED</strong>
-            </article>
-
-            <article class="summary-card">
-                <span class="summary-label">Integrity</span>
-                <strong class="status-pass">VERIFIED</strong>
-            </article>
-
-            <article class="summary-card">
-                <span class="summary-label">Deployment mode</span>
-                <strong>Supervised</strong>
-            </article>
-        </section>
-
-        <section id="workflow" class="content-section">
+        <section
+            id="workflow"
+            class="content-section"
+        >
             <div class="section-heading">
-                <p class="eyebrow">CONTROLLED WORKFLOW</p>
-                <h2>From vulnerability to approved repair</h2>
+                <p class="eyebrow">
+                    ONE PLATFORM · TWO CONTROLLED PATHS
+                </p>
+
+                <h2>
+                    Evidence moves through controlled gates
+                </h2>
+
                 <p>
-                    Generation and verification remain separated. The harness
-                    decides test results; a human decides whether the patch is approved.
+                    KAVACH-Loop combines authorized source analysis with
+                    a separate baseline remediation proof. Deterministic
+                    tools produce the security evidence, local AI may
+                    explain it, and humans retain decision authority.
                 </p>
             </div>
 
-            <div class="workflow-grid">
-                <article class="workflow-card">
-                    <span class="step-number">01</span>
-                    <h3>Detect</h3>
-                    <p>Identify unsafe code using static analysis and controlled local testing.</p>
-                </article>
+            <div class="workflow-lanes">
+                <section class="workflow-lane">
+                    <div class="workflow-lane-heading">
+                        <p class="eyebrow">
+                            PATH A · AUTHORIZED FILE ANALYSIS
+                        </p>
 
-                <article class="workflow-card">
-                    <span class="step-number">02</span>
-                    <h3>Patch</h3>
-                    <p>Create a minimal candidate without modifying the retained vulnerable sample.</p>
-                </article>
+                        <h3>
+                            Analyze an explicitly authorized C file
+                        </h3>
 
-                <article class="workflow-card">
-                    <span class="step-number">03</span>
-                    <h3>Verify</h3>
-                    <p>Check compilation, normal behaviour, crash regression and unsafe-code removal.</p>
-                </article>
+                        <p>
+                            This path validates and scans a submitted
+                            standalone C file without executing it or
+                            generating a patch.
+                        </p>
+                    </div>
 
-                <article class="workflow-card">
-                    <span class="step-number">04</span>
-                    <h3>Approve</h3>
-                    <p>Require manual review before promoting the candidate as the approved version.</p>
-                </article>
+                    <div class="workflow-grid">
+                        <article class="workflow-card">
+                            <span class="step-number">01</span>
 
-                <article class="workflow-card">
-                    <span class="step-number">05</span>
-                    <h3>Remember</h3>
-                    <p>Preserve verified regression evidence for future patch candidates.</p>
-                </article>
+                            <h3>
+                                Authorized intake
+                            </h3>
+
+                            <p>
+                                One explicitly authorized standalone C
+                                source file is accepted under strict
+                                file-type, text and 64 KiB size limits.
+                            </p>
+                        </article>
+
+                        <article class="workflow-card">
+                            <span class="step-number">02</span>
+
+                            <h3>
+                                Deterministic analysis
+                            </h3>
+
+                            <p>
+                                Clang performs syntax-only compilation.
+                                Approved local Semgrep rules identify
+                                supported security findings.
+                            </p>
+                        </article>
+
+                        <article class="workflow-card">
+                            <span class="step-number">03</span>
+
+                            <h3>
+                                Evidence explanation
+                            </h3>
+
+                            <p>
+                                A restricted local Qwen model explains
+                                sanitized compiler and Semgrep evidence.
+                                It does not receive the complete source.
+                            </p>
+                        </article>
+
+                        <article class="workflow-card">
+                            <span class="step-number">04</span>
+
+                            <h3>
+                                Human finding review
+                            </h3>
+
+                            <p>
+                                A human confirms or rejects the automated
+                                conclusion and records a review note. This
+                                does not approve a patch or deployment.
+                            </p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="workflow-lane">
+                    <div class="workflow-lane-heading">
+                        <p class="eyebrow">
+                            PATH B · BASELINE REMEDIATION PROOF
+                        </p>
+
+                        <h3>
+                            Verify a controlled defensive baseline
+                        </h3>
+
+                        <p>
+                            This separate path preserves the original
+                            vulnerable sample, existing candidate patch,
+                            regression inputs and recorded approval.
+                        </p>
+                    </div>
+
+                    <div class="workflow-grid">
+                        <article class="workflow-card">
+                            <span class="step-number">01</span>
+
+                            <h3>
+                                Controlled baseline
+                            </h3>
+
+                            <p>
+                                A deliberately vulnerable local C sample
+                                preserves the original unsafe-copy
+                                condition and reproducible crash evidence.
+                            </p>
+                        </article>
+
+                        <article class="workflow-card">
+                            <span class="step-number">02</span>
+
+                            <h3>
+                                Existing candidate patch
+                            </h3>
+
+                            <p>
+                                A minimal, pre-existing candidate removes
+                                the supported unsafe copy while preserving
+                                expected normal behaviour.
+                            </p>
+                        </article>
+
+                        <article class="workflow-card">
+                            <span class="step-number">03</span>
+
+                            <h3>
+                                Isolated verification
+                            </h3>
+
+                            <p>
+                                A restricted Docker harness checks
+                                compilation, normal input, ASan and AFL++
+                                crash replays, and static-analysis rules.
+                            </p>
+                        </article>
+
+                        <article class="workflow-card">
+                            <span class="step-number">04</span>
+
+                            <h3>
+                                Approval and memory
+                            </h3>
+
+                            <p>
+                                Baseline human approval is recorded
+                                separately, while verified evidence and
+                                SHA-256 hashes support regression memory.
+                            </p>
+                        </article>
+                    </div>
+                </section>
             </div>
         </section>
 
-        <section class="content-section comparison-section">
+        <section
+            id="evidence"
+            class="content-section"
+        >
             <div class="section-heading">
-                <p class="eyebrow">MINIMAL SECURITY PATCH</p>
-                <h2>Before and after</h2>
-            </div>
+                <p class="eyebrow">
+                    RECORDED BASELINE EVIDENCE
+                </p>
 
-            <div class="comparison-grid">
-                <article class="code-card vulnerable-card">
-                    <div class="code-card-header">
-                        <h3>Vulnerable sample</h3>
-                        <span class="status-danger">UNSAFE</span>
-                    </div>
+                <h2>
+                    Independent checks—not an AI opinion
+                </h2>
 
-                    <pre><code>char name[32];
-strcpy(name, input);</code></pre>
-
-                    <p>
-                        An oversized value may exceed the destination buffer.
-                        This sample is retained only for controlled demonstration.
-                    </p>
-                </article>
-
-                <article class="code-card approved-card">
-                    <div class="code-card-header">
-                        <h3>Approved version</h3>
-                        <span class="status-pass">VERIFIED</span>
-                    </div>
-
-                    <pre><code>if (strlen(input) &gt;= sizeof(name)) {
-    fprintf(stderr, "Error: input is too long\n");
-    return 1;
-}
-memcpy(name, input, strlen(input) + 1);</code></pre>
-
-                    <p>
-                        Oversized input is rejected before copying while normal
-                        behaviour remains available.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <section id="evidence" class="content-section">
-            <div class="section-heading">
-                <p class="eyebrow">VERIFICATION EVIDENCE</p>
-                <h2>Independent checks—not an AI opinion</h2>
+                <p>
+                    These results belong to the controlled vulnerable
+                    baseline and its separately reviewed candidate patch.
+                    They do not describe arbitrary uploaded files.
+                </p>
             </div>
 
             <div class="evidence-panel">
@@ -180,7 +331,7 @@ memcpy(name, input, strlen(input) + 1);</code></pre>
                 </div>
 
                 <div class="check-row">
-                    <span>Human patch review</span>
+                    <span>Baseline sample patch review</span>
                     <strong class="status-approved">APPROVED</strong>
                 </div>
 
@@ -189,13 +340,349 @@ memcpy(name, input, strlen(input) + 1);</code></pre>
                     <strong class="status-pass">VERIFIED</strong>
                 </div>
             </div>
+
+            <div class="intake-runner">
+                <div>
+                    <p class="eyebrow">
+                        PATH A: STAGES 1–2 · INTAKE AND ANALYSIS
+                    </p>
+
+                    <h3>
+                        Analyze an authorized C source file
+                    </h3>
+
+                    <p>
+                        Select one standalone C source file of up to
+                        64 KiB. KAVACH-Loop performs syntax-only
+                        compilation and approved static analysis without
+                        executing the submitted program.
+                    </p>
+
+                    <div class="intake-scope">
+                        <div>
+                            <h4>
+                                Checks performed
+                            </h4>
+
+                            <ul>
+                                <li>
+                                    File type, size and text validation
+                                </li>
+
+                                <li>
+                                    Clang syntax-only compilation
+                                </li>
+
+                                <li>
+                                    Approved local Semgrep rules
+                                </li>
+
+                                <li>
+                                    Sanitized evidence reporting
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>
+                                Safety limitations
+                            </h4>
+
+                            <ul>
+                                <li>
+                                    Uploaded source is never executed
+                                </li>
+
+                                <li>
+                                    No automatic patch is generated
+                                </li>
+
+                                <li>
+                                    No complete-security guarantee is claimed
+                                </li>
+
+                                <li>
+                                    Human review remains mandatory
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <form
+                    id="c-intake-form"
+                    class="intake-form"
+                >
+                    <label for="c-source-file">
+                        Authorized C source
+                    </label>
+
+                    <input
+                        id="c-source-file"
+                        name="source"
+                        type="file"
+                        accept=".c,text/x-c"
+                        required
+                    >
+
+                    <button
+                        id="analyze-c-file"
+                        class="primary-button"
+                        type="submit"
+                    >
+                        Analyze C file
+                    </button>
+                </form>
+
+                <div
+                    id="c-intake-result"
+                    class="verification-result"
+                    role="status"
+                    aria-live="polite"
+                >
+                    No file selected. Source execution and automatic
+                    patching remain disabled.
+                </div>
+
+                <div class="agent-runner">
+                    <div>
+                        <p class="eyebrow">
+                            PATH A: STAGE 3 · LOCAL EVIDENCE EXPLANATION
+                        </p>
+
+                        <h3>
+                            Explain the deterministic evidence
+                        </h3>
+
+                        <p>
+                            The local Qwen model receives only sanitized
+                            compiler and Semgrep evidence. It does not
+                            receive the complete uploaded source file and
+                            cannot patch, approve, merge or deploy changes.
+                        </p>
+                    </div>
+
+                    <div class="agent-actions">
+                        <button
+                            id="run-evidence-agent"
+                            class="primary-button agent-button"
+                            type="button"
+                            disabled
+                        >
+                            Explain latest evidence
+                        </button>
+
+                        <button
+                            id="download-agent-report"
+                            class="primary-button agent-download-button"
+                            type="button"
+                            disabled
+                        >
+                            Download sanitized report
+                        </button>
+                    </div>
+
+                    <div
+                        id="evidence-agent-result"
+                        class="verification-result"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        Analyze an authorized C file before requesting
+                        an AI explanation.
+                    </div>
+
+                    <div
+                        id="evidence-agent-report"
+                        class="agent-report"
+                        hidden
+                    >
+                        <div class="agent-report-header">
+                            <div>
+                                <span class="agent-report-label">
+                                    DECISION
+                                </span>
+
+                                <strong id="agent-report-decision">
+                                    NOT ANALYZED
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span class="agent-report-label">
+                                    REVIEW PRIORITY
+                                </span>
+
+                                <strong
+                                    id="agent-report-priority"
+                                    class="priority-badge"
+                                >
+                                    NOT AVAILABLE
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span class="agent-report-label">
+                                    CONFIDENCE
+                                </span>
+
+                                <strong id="agent-report-confidence">
+                                    NOT AVAILABLE
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span class="agent-report-label">
+                                    MODEL
+                                </span>
+
+                                <strong id="agent-report-model">
+                                    NOT AVAILABLE
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span class="agent-report-label">
+                                    ELAPSED
+                                </span>
+
+                                <strong id="agent-report-elapsed">
+                                    NOT AVAILABLE
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="agent-report-grid">
+                            <article class="agent-report-card">
+                                <h4>Summary</h4>
+                                <p id="agent-report-summary"></p>
+                            </article>
+
+                            <article class="agent-report-card">
+                                <h4>Root cause</h4>
+                                <p id="agent-report-root-cause"></p>
+                            </article>
+
+                            <article class="agent-report-card">
+                                <h4>Key evidence</h4>
+                                <ul id="agent-report-evidence"></ul>
+                            </article>
+
+                            <article class="agent-report-card">
+                                <h4>Recommended human action</h4>
+                                <p id="agent-report-action"></p>
+                            </article>
+
+                            <article
+                                class="agent-report-card agent-report-wide"
+                            >
+                                <h4>Limitations</h4>
+                                <ul id="agent-report-limitations"></ul>
+                            </article>
+                        </div>
+
+                        <div class="agent-report-guardrail">
+                            <strong>Safety guardrail:</strong>
+                            raw source not sent to the model · source not
+                            executed · automatic patch, approval, merge and
+                            deployment disabled
+                        </div>
+                    </div>
+
+                    <section
+                        id="human-review-gate"
+                        class="human-review-gate"
+                        aria-labelledby="human-review-title"
+                        hidden
+                    >
+                        <div>
+                            <p class="eyebrow">
+                                PATH A: STAGE 4 · HUMAN FINDING REVIEW
+                            </p>
+
+                            <h3 id="human-review-title">
+                                Record the human decision
+                            </h3>
+
+                            <p>
+                                Review the deterministic evidence and advisory
+                                explanation. This local decision confirms or
+                                rejects the automated conclusion—it does not
+                                approve a patch or authorize deployment.
+                            </p>
+                        </div>
+
+                        <label for="human-review-note">
+                            Reviewer note
+                        </label>
+
+                        <textarea
+                            id="human-review-note"
+                            rows="4"
+                            minlength="10"
+                            maxlength="500"
+                            placeholder="Explain why you confirm or reject the automated conclusion."
+                        ></textarea>
+
+                        <div class="human-review-actions">
+                            <button
+                                id="confirm-finding"
+                                class="primary-button"
+                                type="button"
+                            >
+                                Confirm finding
+                            </button>
+
+                            <button
+                                id="reject-conclusion"
+                                class="danger-button"
+                                type="button"
+                            >
+                                Reject automated conclusion
+                            </button>
+
+                            <button
+                                id="download-review-record"
+                                class="primary-button"
+                                type="button"
+                                disabled
+                            >
+                                Download review record
+                            </button>
+                        </div>
+
+                        <div
+                            id="human-review-result"
+                            class="verification-result"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            No human decision has been recorded.
+                        </div>
+
+                        <p class="human-review-caveat">
+                            Local demonstration record only. Reviewer
+                            identity is not authenticated, and no source,
+                            patch, merge or deployment action is performed.
+                        </p>
+                    </section>
+                </div>
+            </div>
+
             <div class="verification-runner">
                 <div>
-                    <p class="eyebrow">LIVE CONTAINER CHECK</p>
-                    <h3>Run isolated verification</h3>
+                    <p class="eyebrow">
+                        PATH B: ISOLATED BASELINE VERIFICATION
+                    </p>
+
+                    <h3>
+                        Run isolated baseline verification
+                    </h3>
+
                     <p>
-                        Trigger the fixed defensive harness inside the restricted Docker
-                        container. No command, filename or external target can be supplied.
+                        Trigger the fixed baseline defensive harness inside
+                        the restricted Docker container. No command,
+                        filename or external target can be supplied.
                     </p>
                 </div>
 
@@ -213,29 +700,36 @@ memcpy(name, input, strlen(input) + 1);</code></pre>
                     role="status"
                     aria-live="polite"
                 >
-                    Ready. Human approval remains required after every passing run.
+                    Ready. This baseline harness still requires separate
+                    human approval.
                 </div>
             </div>
         </section>
 
         <section class="content-section boundary-section">
             <div>
-                <p class="eyebrow">SAFETY BOUNDARY</p>
-                <h2>Supervised autonomy by design</h2>
+                <p class="eyebrow">
+                    SAFETY BOUNDARY
+                </p>
+
+                <h2>
+                    Supervised autonomy by design
+                </h2>
             </div>
 
             <p>
-                KAVACH-Loop is an authorized defensive college prototype using
-                locally created test files. It does not automatically merge or
-                deploy patches and is not proposed for unsupervised operation
-                on live or classified systems.
+                KAVACH-Loop is an authorized defensive prototype developed
+                for Terrier Cyber Quest 2026 using locally created or
+                explicitly authorized test files. It does not automatically
+                execute submitted source, generate or merge patches, deploy
+                changes, or operate on live or classified systems.
             </p>
         </section>
     </main>
 
     <footer>
         <p>
-            KAVACH-Loop · Defensive cybersecurity research prototype
+            KAVACH-Loop · Evidence-guided defensive cybersecurity prototype
         </p>
     </footer>
 
